@@ -1,0 +1,107 @@
+🧠 What is Execution Context?
+
+Think of execution context as the environment where JavaScript code runs.
+
+It tells JS where you are, what variables/functions you can use, and what this refers to at that moment.
+
+⚡ Types of Execution Context
+
+There are mainly two kinds:
+
+Global Execution Context (GEC)
+
+Created when your JS file starts running.
+
+There is only one GEC in the whole program.
+
+It:
+
+Creates the global object (window in browser, global in Node.js).
+
+Sets this to the global object (in non–strict mode).
+
+Holds all global variables and functions.
+
+Function Execution Context (FEC)
+
+Created every time a function is called.
+
+Each function call gets its own new context.
+
+Contains:
+
+Arguments of the function.
+
+Local variables.
+
+A reference to its outer scope (Scope Chain).
+
+🛠️ How Execution Context is Created
+
+When JS runs code, it creates execution context in two phases:
+
+Creation Phase (Memory Allocation / Hoisting Phase)
+
+JS scans the code first.
+
+Variables are set to undefined.
+
+Functions are stored completely in memory.
+
+Example:
+
+console.log(x);   // undefined
+var x = 10;
+function greet() { console.log("Hello"); }
+
+
+Here, x is hoisted as undefined.
+
+greet is fully hoisted (so you can call it before it appears).
+
+Execution Phase
+
+Code runs line by line.
+
+Variables get actual values.
+
+Functions execute when called.
+
+🔄 Call Stack (Execution Stack)
+
+JS keeps track of execution contexts using a stack (LIFO).
+
+When a function is called → a new context is pushed on top of the stack.
+
+When the function finishes → its context is popped off.
+
+Always, the Global Execution Context is at the bottom.
+
+Example:
+
+function first() {
+  second();
+  console.log("Inside first");
+}
+
+function second() {
+  console.log("Inside second");
+}
+
+first();
+console.log("Global");
+
+
+👉 Call Stack flow:
+
+GEC created.
+
+first() called → push first context.
+
+Inside first, second() called → push second context.
+
+second finishes → pop it.
+
+Continue first → finish → pop it.
+
+Back to Global → finish.
