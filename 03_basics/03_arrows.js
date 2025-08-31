@@ -1,8 +1,11 @@
+const sym=Symbol("key1");
 const user={
     name:"Jaideep",
     price:4323,
+    [sym]:"sahil",
+    "phone":33534,
     welcomeMessg:function(){
-        console.log(`${this.name}, welcome aaiye`);
+        console.log(`${this.name}, welcome aaiye ${this.phone}. ${user[sym]}`);
         console.log(this);// this will print the current values in the object 
         
     }
@@ -55,3 +58,6 @@ const addt=(n1,n2)=>({aname:"hit"})
 console.log(addt(23,23));
 
 
+//without name if we want to implement arrow fnctn
+// we wrap in brackets then we use round bracket just outside of it
+(()=>console.log(5+34))()

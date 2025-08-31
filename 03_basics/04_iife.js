@@ -1,4 +1,4 @@
-//Immediately Invoded function Expressions (IIFE)
+//Immediately Invoked function Expressions (IIFE)
 // global scope k pollution  se problem hoti hai kai baar
 // to remove that pollution we use IIFE
 // to immediately invoke functions
